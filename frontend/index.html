@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+
+<head>
+    <title>Todo List</title>
+    <!-- Link the external CSS file -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div ng-controller="TodoController as todoCtrl">
+        <h1>Todo List</h1>
+        <input type="text" ng-model="todoCtrl.newTodo" placeholder="Add new todo">
+        <!-- Use the responsive-btn class for Add button -->
+        <button class="responsive-btn" ng-click="todoCtrl.addTodo()">Add</button>
+
+        <ul class="todo-list">
+            <!-- Use ng-repeat to iterate over todos array and display each todo item -->
+            <li ng-repeat="todo in todoCtrl.todos" class="todo-item">
+                <!-- Display todo item text -->
+                <span class="todo-text">{{ todo.text }}</span>
+
+                <!-- Use the responsive-btn and remove-btn classes for Remove button -->
+                <button class="responsive-btn remove-btn" ng-click="todoCtrl.removeTodo(todo)">Remove</button>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
